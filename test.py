@@ -51,7 +51,7 @@ for i in range(100):
 
 '''
 pickle_in = open("harvest39.pickle","rb")
-#
+
 linear = pickle.load(pickle_in)
 
 acc = linear.score(x_test, y_test)
