@@ -39,14 +39,19 @@ acc = linear.score(x_test, y_test)
 class HelloWorld(Resource):
     def get(self,name):
         pre = {}
+        tot = 0
         for i in range(10):
             p = linear.predict([[i+1,name]])
             pre[str(i)] = dict(enumerate(p.flatten(), 1))
-                
+            tot += p
 
         return {"data":{
             "accuracy":acc,
-            "prediction":pre
+            "prediction":pre,
+            "total":dict(enumerate(tot.flatten(),1)),
+            "firstHarvestDay":45,
+            "range":5,
+            "times":10
         }}
     
 
